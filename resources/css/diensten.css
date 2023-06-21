@@ -1,0 +1,61 @@
+/* ============= ADD DIENST BUTTON ============= */
+.button-default {
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 5px 10px;
+	margin: 10px;
+	display: inline-block;
+	width: 95%;
+}
+
+.button-slanted {
+	-ms-transform: skewX(-20deg);
+	-webkit-transform: skewX(-20deg);
+	transform: skewX(-20deg);
+}
+
+.button-slanted-content {
+	-ms-transform: skewX(20deg);
+	-webkit-transform: skewX(20deg);
+	transform: skewX(20deg);
+	display: inline-block;
+}
+
+#addDienstButton {
+	height: 100%;
+	font: 100%;
+}
+
+/* ============= CLOSE ADD/EDIT POPUP ============= */
+.closepopup {
+	top: 0;
+	right: 10px;
+	cursor: pointer;
+}
+
+/* ============= DIENSTEN DATA ============= */
+.dienstPrijs {
+	width: 75px;
+}
+
+.dienstOmschrijving {
+	background-color: #ffe7ca;
+}
+
+.options {
+	width: 76px;
+	background: #ffe7ca;
+}
+
+.deleteDienst {
+	font-size: 25px;
+	color: #9f0000;
+	cursor: pointer;
+}
+
+.editDienst {
+	font-size: 25px;
+	color: #d7974a;
+	cursor: pointer;
+}

@@ -28,7 +28,7 @@
 
 <script>
 export default {
-	name: "login",
+	name: "Login",
 	data() {
 		return {
 			email: '',
@@ -42,25 +42,15 @@ export default {
 	methods: {
 		login: async function () {
 			const logindata = { username: this.email, password: this.password };
-			this.axios.post("/loginuser", logindata)
-				.then(response => {
-					if (response['data']['bool'] == "true") {
-						this.$notify({
-							// title: "Important message",
-							text: response['data']['message'],
-							type: 'success',
-							duration: 3000,
-						});
-						location.href = "/";
-					}else{
-						this.$notify({
-							// title: "Important message",
-							text: response['data']['message'],
-							type: 'warn',
-							duration: 3000,
-						});
-					}
-				});
+			this.axios.post("/loginuser", logindata).then(response => {
+				if (response['data']['bool'] == "true") {
+					this.$notify({ text: response['data']['message'], type: 'success', duration: 3000 });
+					sessionStorage.email = this.email;
+					location.href = "/dashboard";
+				} else {
+					this.$notify({ text: response['data']['message'], type: 'warn', duration: 3000 });
+				}
+			});
 		}
 	}
 }

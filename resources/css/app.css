@@ -2,10 +2,14 @@ html,
 body {
 	overflow-x: hidden;
 	overflow-y: auto;
+	background-image: url("../../resources/img/bg.webp");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 #header {
-	/* height: 50px; */
+	background-color: #ffffffbe;
 }
 
 .headeritem {
@@ -37,4 +41,24 @@ body {
 .notification-content {
 	font-size: 16px;
 	font-family: system-ui;
+}
+
+/* POPUP */
+.popup {
+	position: absolute;
+	width: 80%;
+	height: fit-content;
+	max-height: 80vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #FFF;
+	padding: 10px;
+	box-shadow: 0 0 4px 1px rgb(151, 151, 151);
+	border-radius: 5px;
+	z-index: 9999999999999999;
 }

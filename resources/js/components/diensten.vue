@@ -16,7 +16,7 @@
 		<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 mt-4">
 			<div class="row">
 				<!-- ----------------- Dienst ----------------- -->
-				<div v-for="dienst in diensten" class="col-12 col-md-12 col-lg-6 col-xl-6">
+				<div v-for="dienst in diensten" class="col-12 col-md-12 col-lg-6 col-xl-6 mb-4">
 					<div id="dienst" class="shadow-sm bg-white dienst">
 						<div class="d-flex gap-1">
 							<span class="dienstNaam p-2 w-100">{{ dienst.naam }}</span>
@@ -180,7 +180,7 @@ export default {
 						this.axios.post("/deletedienst", dienst).then(response => {
 							if (response['data']['bool'] == "true") {
 								this.$notify({ text: response['data']['message'], type: 'success', duration: 3000 });
-								this.getShips();
+								this.getDiensten();
 							} else {
 								this.$notify({ text: response['data']['message'], type: 'error', duration: 3000 });
 							}

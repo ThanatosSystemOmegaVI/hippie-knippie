@@ -1,0 +1,8 @@
+.dienst{
+	transform: skew(-15deg);
+}
+
+.dienstPrijs{
+	width: 100px;
+	text-align: right;
+}

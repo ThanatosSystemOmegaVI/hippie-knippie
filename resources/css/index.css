@@ -1,8 +1,17 @@
-.dienst{
-	transform: skew(-15deg);
+.groupheader {
+	font-size: 80px;
 }
 
-.dienstPrijs{
-	width: 100px;
+.dienst {
+	transform: skew(-15deg);
+	border-bottom: 10px solid #5c5470
+}
+
+.dienstPrijs {
+	width: 150px;
 	text-align: right;
+}
+
+.dienstOmschrijving{
+	height: fit-content !important;
 }

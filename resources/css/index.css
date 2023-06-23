@@ -2,16 +2,16 @@
 	font-size: 80px;
 }
 
-.dienst {
+.homeDienst {
 	transform: skew(-15deg);
 	border-bottom: 10px solid #5c5470
 }
 
-.dienstPrijs {
+.homeDienstPrijs {
 	width: 150px;
 	text-align: right;
 }
 
-.dienstOmschrijving{
+.homeDienstOmschrijving{
 	height: fit-content !important;
 }

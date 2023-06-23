@@ -6,6 +6,7 @@ body {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	/* background: #f8faff; */
 }
 
 #header {
@@ -61,4 +62,37 @@ body {
 	box-shadow: 0 0 4px 1px rgb(151, 151, 151);
 	border-radius: 5px;
 	z-index: 9999999999999999;
+}
+
+/* others */
+.bg-light-purple{
+	background-color: #f0dffc !important;
+}
+.bg-purple {
+	background-color: #eacbff !important;
+}
+.bg-dark-purple {
+	background-color: #5c5470 !important;
+	color: #FFF;
+}
+
+.text-light-purple{
+	color: #f0dffc !important;
+}
+.text-purple {
+	color: #eacbff !important;
+}
+.text-dark-purple {
+	color: #5c5470 !important;
+}
+
+.btn-light-purple{
+	background-color: #f0dffc !important;
+}
+.btn-purple {
+	background-color: #eacbff !important;
+}
+.btn-dark-purple {
+	background-color: #5c5470 !important;
+	color: #FFF !important;
 }

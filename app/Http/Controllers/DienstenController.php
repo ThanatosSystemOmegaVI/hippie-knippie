@@ -32,7 +32,7 @@ class DienstenController extends Controller
 
         if (!Diensten::where('naam', $_POST['naam'])->exists()) {
             // insert dienst
-            $insert = Diensten::insert(["naam" => $_POST['naam'], "prijs" => $_POST['prijs'], "omschrijving" => $omschrijving]);
+            $insert = Diensten::insert(["naam" => ucfirst($_POST['naam']), "prijs" => $_POST['prijs'], "omschrijving" => $omschrijving]);
             if ($insert) {
                 return response()->json([
                     'bool' => "true",

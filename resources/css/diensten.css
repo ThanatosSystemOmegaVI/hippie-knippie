@@ -35,17 +35,17 @@
 }
 
 /* ============= DIENSTEN DATA ============= */
+.dienst {
+	overflow: hidden;
+	border-radius: 1px;
+}
+
 .dienstPrijs {
 	width: 75px;
 }
 
-.dienstOmschrijving {
-	background-color: #ffe7ca;
-}
-
 .options {
 	width: 76px;
-	background: #ffe7ca;
 }
 
 .deleteDienst {

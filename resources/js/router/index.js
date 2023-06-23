@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 
 import Home from '@/components/index.vue';
 let authenticated = sessionStorage.email !== undefined && sessionStorage.email !== null && sessionStorage.email !== "" && sessionStorage.email.length > 0 ? true : false;
+
 export const routes = [
 	{
 		name: 'home',
@@ -17,19 +18,19 @@ export const routes = [
 		name: 'dashboard',
 		path: '/dashboard',
 		component: () => import('@/components/dashboard.vue'),
-		authRequired: true,
+		meta: { authRequired: true },
 	},
 	{
 		name: 'diensten',
 		path: '/dashboard/diensten',
 		component: () => import('@/components/diensten.vue'),
-		authRequired: true,
+		meta: { authRequired: true },
 	},
 	{
 		name: 'contactverzoeken',
 		path: '/dashboard/contactverzoeken',
 		component: () => import('@/components/contactverzoeken.vue'),
-		authRequired: true,
+		meta: { authRequired: true },
 	},
 	{
 		name: '404',
@@ -44,7 +45,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	if (to.authRequired) {
+	if (to.meta.authRequired) {
 		if (authenticated) {
 			next();
 		} else {

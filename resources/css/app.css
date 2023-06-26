@@ -72,34 +72,46 @@ body {
 }
 
 /* others */
-.bg-light-purple{
+.bg-light-purple {
 	background-color: #f0dffc !important;
 }
+
 .bg-purple {
 	background-color: #eacbff !important;
 }
+
 .bg-dark-purple {
 	background-color: #5c5470 !important;
 	color: #FFF;
 }
 
-.text-light-purple{
+.text-light-purple {
 	color: #f0dffc !important;
 }
+
 .text-purple {
 	color: #eacbff !important;
 }
+
 .text-dark-purple {
 	color: #5c5470 !important;
 }
 
-.btn-light-purple{
+.btn-light-purple {
 	background-color: #f0dffc !important;
 }
+
 .btn-purple {
 	background-color: #eacbff !important;
 }
+
 .btn-dark-purple {
 	background-color: #5c5470 !important;
 	color: #FFF !important;
+}
+
+@media screen and (max-width: 600px) {
+	.popup {
+		width: 100%;
+	}
 }

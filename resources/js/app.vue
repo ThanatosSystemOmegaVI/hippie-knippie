@@ -15,7 +15,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-12">
+		<div class="col-12 col-md-12 col-lg-12 col-xl-12">
 			<router-view></router-view>
 			<notifications width="350"/>
 		</div>

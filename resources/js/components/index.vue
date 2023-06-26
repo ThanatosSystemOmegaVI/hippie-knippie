@@ -1,56 +1,58 @@
 <template>
-	<div class="row">
-		<!-- ----------------- Alle diensten ----------------- -->
-		<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 my-4">
-			<div class="row">
-				<!-- ----------------- Dienst ----------------- -->
-				<div v-for="dienst in diensten" class="col-12 col-md-12 col-lg-12 col-xl-12 mb-4">
-					<div id="homeDienst" class="homeDienst">
-						<div class="d-flex">
-							<span class="homeDienstNaam p-2 fs-4 bg-white w-100 fw-bold">{{ dienst.naam }}</span>
-							<span class="homeDienstPrijs p-2 fs-3 bg-dark-purple fw-bold">€{{ dienst.prijs.includes('.00') ?
-								dienst.prijs : dienst.prijs + '.00' }}</span>
-						</div>
-						<div class="d-flex" v-if="dienst.omschrijving.length > 0">
-							<span class="homeDienstOmschrijving bg-light-purple p-2 w-100">{{ dienst.omschrijving }}</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- ----------------- contact formulier ----------------- -->
-		<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 mt-2 mb-5">
-			<div id="contactform" class="contactform">
+	<section class="p-4"> 
+		<div class="row">
+			<!-- ----------------- Alle diensten ----------------- -->
+			<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 my-4">
 				<div class="row">
-					<div class="col-12 col-md-12 col-lg-6 col-xl-6">
-						<img src="../../img/contact.webp" class="img-fluid" @click="toPage('/')" alt="logo">
+					<!-- ----------------- Dienst ----------------- -->
+					<div v-for="dienst in diensten" class="col-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+						<div id="homeDienst" class="homeDienst">
+							<div class="d-flex">
+								<span class="homeDienstNaam p-2 fs-4 bg-white w-100 fw-bold">{{ dienst.naam }}</span>
+								<span class="homeDienstPrijs p-2 fs-3 bg-dark-purple fw-bold">€{{ dienst.prijs.includes('.00') ?
+									dienst.prijs : dienst.prijs + '.00' }}</span>
+							</div>
+							<div class="d-flex" v-if="dienst.omschrijving.length > 0">
+								<span class="homeDienstOmschrijving bg-light-purple p-2 w-100">{{ dienst.omschrijving }}</span>
+							</div>
+						</div>
 					</div>
-					<div class="col-12 col-md-12 col-lg-6 col-xl-6">
-						<h1 class="text-center mb-2">Neem contact op</h1>
-						<!-- Name -->
-						<div class="mb-2">
-							<input type="text" id="formName" v-model="contactverzoek.naam" class="form-control form-control-lg thick" placeholder="Naam">
+				</div>
+			</div>
+
+			<!-- ----------------- contact formulier ----------------- -->
+			<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 mt-2 mb-5">
+				<div id="contactform" class="contactform">
+					<div class="row">
+						<div class="col-12 col-md-12 col-lg-6 col-xl-6">
+							<img src="../../img/contact.webp" class="img-fluid" @click="toPage('/')" alt="logo">
 						</div>
-						<!-- E-mail -->
-						<div class="mb-2">
-							<input type="email" id="formEmail" v-model="contactverzoek.email" class="form-control form-control-lg thick" placeholder="E-mail">
+						<div class="col-12 col-md-12 col-lg-6 col-xl-6">
+							<h1 class="text-center mb-2">Neem contact op</h1>
+							<!-- Name -->
+							<div class="mb-2">
+								<input type="text" id="formName" v-model="contactverzoek.naam" class="form-control form-control-lg thick" placeholder="Naam">
+							</div>
+							<!-- E-mail -->
+							<div class="mb-2">
+								<input type="email" id="formEmail" v-model="contactverzoek.email" class="form-control form-control-lg thick" placeholder="E-mail">
+							</div>
+							<!-- Onderwerp -->
+							<div class="mb-2">
+								<input type="email" id="formEmail" v-model="contactverzoek.onderwerp" class="form-control form-control-lg thick" placeholder="Onderwerp">
+							</div>
+							<!-- Message -->
+							<div class="mb-2">
+								<textarea id="formMessage" v-model="contactverzoek.bericht" class="form-control form-control-lg" rows="5" placeholder="Bericht"></textarea>
+							</div>
+							<!-- Submit -->
+							<button type="submit" @click="submitContactForm()" class="btn btn-dark-purple secondary w-100" tabIndex="-1">Send message</button>
 						</div>
-						<!-- Onderwerp -->
-						<div class="mb-2">
-							<input type="email" id="formEmail" v-model="contactverzoek.onderwerp" class="form-control form-control-lg thick" placeholder="Onderwerp">
-						</div>
-						<!-- Message -->
-						<div class="mb-2">
-							<textarea id="formMessage" v-model="contactverzoek.bericht" class="form-control form-control-lg" rows="5" placeholder="Bericht"></textarea>
-						</div>
-						<!-- Submit -->
-						<button type="submit" @click="submitContactForm()" class="btn btn-dark-purple secondary w-100" tabIndex="-1">Send message</button>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <script>

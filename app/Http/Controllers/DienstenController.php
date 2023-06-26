@@ -11,7 +11,7 @@ class DienstenController extends Controller
 {
     public function getDiensten(Request $request)
     {
-        $diensten = Diensten::get();
+        $diensten = Diensten::orderBy('id')->get();
         if (!empty($diensten)) {
             $diensten = $diensten->toArray();
         } else {

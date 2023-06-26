@@ -1,88 +1,90 @@
 <template>
-	<div class="row">
-		<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10">
-			<h1 class="groupheader text-center w-100 mt-4">Diensten</h1>
-		</div>
-		<!-- ------------------------------------- Add ship button ------------------------------------- -->
-		<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 mt-4">
-			<div class="row">
-				<div id="addbutton"
-					class="offset-6 col-6 offset-md-6 col-md-6 offset-lg-8 col-lg-4 offset-xl-9 col-xl-3 addbutton position-relative" @click="dienstToevoegen()">
-					<div class="button-default button-slanted bg-dark-purple text-white fw-bold pointer">
-						<span class="button-slanted-content"><font-awesome-icon icon="fa-solid fa-plus" /> Dienst toevoegen</span>
+	<section class="p-4"> 
+		<div class="row">
+			<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10">
+				<h1 class="groupheader text-center w-100 mt-4">Diensten</h1>
+			</div>
+			<!-- ------------------------------------- Add ship button ------------------------------------- -->
+			<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 mt-4">
+				<div class="row">
+					<div id="addbutton"
+						class="col-12 col-md-12 offset-lg-8 col-lg-4 offset-xl-9 col-xl-3 addbutton position-relative" @click="dienstToevoegen()">
+						<div class="button-default button-slanted bg-dark-purple text-white fw-bold pointer">
+							<span class="button-slanted-content"><font-awesome-icon icon="fa-solid fa-plus" /> Dienst toevoegen</span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<!-- ----------------- Alle diensten ----------------- -->
-		<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 mt-4">
-			<div class="row">
-				<!-- ----------------- Dienst ----------------- -->
-				<div v-for="dienst in diensten" class="col-12 col-md-12 col-lg-4 col-xl-4 mb-4">
-					<div id="dienst" class="shadow-sm dienst h-100">
-						<div class="d-flex">
-							<span class="dienstNaam p-2 bg-white w-100 fw-bold">{{ dienst.naam }}</span>
-							<span class="dienstPrijs p-2 bg-dark-purple fw-bold">€{{ dienst.prijs.includes('.00') ? dienst.prijs : dienst.prijs+'.00' }}</span>
-						</div>
-						<div class="d-flex h-100">
-							<span class="dienstOmschrijving bg-light-purple p-2 w-100">{{ dienst.omschrijving }}</span>
-							<div class="bg-light-purple d-flex options p-2 justify-content-between">
-								<font-awesome-icon icon="fa-solid fa-trash" class="deleteDienst" @click="deleteDienst(dienst)" />
-								<font-awesome-icon icon="fa-solid fa-pen" class="editDienst" @click="editDienst(dienst)" />
+			<!-- ----------------- Alle diensten ----------------- -->
+			<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 mt-4">
+				<div class="row">
+					<!-- ----------------- Dienst ----------------- -->
+					<div v-for="dienst in diensten" class="col-12 col-md-12 col-lg-4 col-xl-4 mb-4">
+						<div id="dienst" class="shadow-sm dienst h-100">
+							<div class="d-flex">
+								<span class="dienstNaam p-2 bg-white w-100 fw-bold">{{ dienst.naam }}</span>
+								<span class="dienstPrijs p-2 bg-dark-purple fw-bold">€{{ dienst.prijs.includes('.00') ? dienst.prijs : dienst.prijs+'.00' }}</span>
+							</div>
+							<div class="d-flex h-100">
+								<span class="dienstOmschrijving bg-light-purple p-2 w-100">{{ dienst.omschrijving }}</span>
+								<div class="bg-light-purple d-flex options p-2 justify-content-between">
+									<font-awesome-icon icon="fa-solid fa-trash" class="deleteDienst" @click="deleteDienst(dienst)" />
+									<font-awesome-icon icon="fa-solid fa-pen" class="editDienst" @click="editDienst(dienst)" />
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<!-- ----------------- Nieuwe dienst toevoegen POPUP ----------------- -->
-		<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 mt-4">
-			<div class="popup shadow-sm p-2 bg-white rounded-2" v-if="showAddDienst">
-				<!-- ----------------- Titel ----------------- -->
-				<div class="row">
-					<div class="col-12 position-relative">
-						<h2 class="text-center text-dark-purple" v-if="this.editDienstID == 0">Dienst toevoegen</h2>
-						<h2 class="text-center text-dark-purple" v-else>Edit ship</h2>
-						<font-awesome-icon icon="fa-solid fa-xmark" class="position-absolute closepopup text-dark-purple fs-1" @click="this.showAddDienst = false" />
+			<!-- ----------------- Nieuwe dienst toevoegen POPUP ----------------- -->
+			<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 mt-4">
+				<div class="popup shadow-sm p-2 bg-white rounded-2" v-if="showAddDienst">
+					<!-- ----------------- Titel ----------------- -->
+					<div class="row">
+						<div class="col-12 position-relative">
+							<h2 class="text-center text-dark-purple" v-if="this.editDienstID == 0">Dienst toevoegen</h2>
+							<h2 class="text-center text-dark-purple" v-else>Dienst aanpassen</h2>
+							<font-awesome-icon icon="fa-solid fa-xmark" class="position-absolute closepopup text-dark-purple fs-1" @click="this.showAddDienst = false" />
+						</div>
 					</div>
-				</div>
-				<!-- ----------------- Inputs ----------------- -->
-				<div class="row">
-					<div class="col-12 col-md-12 col-lg-12 col-xl-12">
-						<div class="row">
-							<div class="col-12 col-md-12 col-lg-6 col-xl-6">
-								<div class="input-group mb-1">
-									<span class="input-group-text" id="basic-addon1"><font-awesome-icon icon="fa-solid fa-heading" /></span>
-									<input type="text" id="title" class="form-control" placeholder="Dienst" v-model="nieuweDienst.naam">
+					<!-- ----------------- Inputs ----------------- -->
+					<div class="row">
+						<div class="col-12 col-md-12 col-lg-12 col-xl-12">
+							<div class="row">
+								<div class="col-12 col-md-12 col-lg-6 col-xl-6">
+									<div class="input-group mb-1">
+										<span class="input-group-text" id="basic-addon1"><font-awesome-icon icon="fa-solid fa-heading" /></span>
+										<input type="text" id="title" class="form-control" placeholder="Dienst" v-model="nieuweDienst.naam">
+									</div>
 								</div>
-							</div>
-							<div class="col-12 col-md-12 col-lg-6 col-xl-6">
-								<div class="input-group mb-1">
-									<span class="input-group-text" id="basic-addon1"><font-awesome-icon icon="fa-solid fa-euro-sign" /></span>
-									<input type="text" id="prijs" class="form-control" placeholder="Prijs" v-model="nieuweDienst.prijs">
+								<div class="col-12 col-md-12 col-lg-6 col-xl-6">
+									<div class="input-group mb-1">
+										<span class="input-group-text" id="basic-addon1"><font-awesome-icon icon="fa-solid fa-euro-sign" /></span>
+										<input type="text" id="prijs" class="form-control" placeholder="Prijs" v-model="nieuweDienst.prijs">
+									</div>
 								</div>
-							</div>
-							<div class="col-12 col-md-12 col-lg-12 col-xl-12">
-								<div class="input-group">
-									<span class="input-group-text" id="basic-addon1"><font-awesome-icon icon="fa-solid fa-heading" /></span>
-									<textarea id="omschrijving" class="form-control" row="4" placeholder="Omschrijving (optioneel)" v-model="nieuweDienst.omschrijving"></textarea>
+								<div class="col-12 col-md-12 col-lg-12 col-xl-12">
+									<div class="input-group">
+										<span class="input-group-text" id="basic-addon1"><font-awesome-icon icon="fa-solid fa-heading" /></span>
+										<textarea id="omschrijving" class="form-control" row="4" placeholder="Omschrijving (optioneel)" v-model="nieuweDienst.omschrijving"></textarea>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<!-- ----------------- Submit ----------------- -->
-				<div class="row">
-					<div class="col-12">
-						<button class="btn button btn-dark-purple w-100 mt-2" v-if="this.editDienstID == 0" @click="dienstToevoegenSubmit()"><font-awesome-icon icon="fa-solid fa-plus" /> Dienst toevoegen</button>
-						<button class="btn button btn-dark-purple w-100 mt-2" v-else @click="editDienstSubmit()"><font-awesome-icon icon="fa-solid fa-pen" />  Dienst aanpassen</button>
+					<!-- ----------------- Submit ----------------- -->
+					<div class="row">
+						<div class="col-12">
+							<button class="btn button btn-dark-purple w-100 mt-2" v-if="this.editDienstID == 0" @click="dienstToevoegenSubmit()"><font-awesome-icon icon="fa-solid fa-plus" /> Dienst toevoegen</button>
+							<button class="btn button btn-dark-purple w-100 mt-2" v-else @click="editDienstSubmit()"><font-awesome-icon icon="fa-solid fa-pen" />  Dienst aanpassen</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <script>

@@ -35,6 +35,12 @@ body {
 	cursor: pointer;
 }
 
+.groupheader {
+	font-size: 50px;
+	color: #5c5470 !important;
+	border-bottom: 10px solid #5c5470 !important;
+}
+
 /* notification styling overide  */
 .vue-notification {
 	margin-right: 0 !important;

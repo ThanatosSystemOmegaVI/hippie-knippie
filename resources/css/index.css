@@ -1,5 +1,10 @@
-.groupheader {
-	font-size: 80px;
+.contactbox {
+	color: #5c5470 !important;
+	border-bottom: 10px solid #5c5470 !important;
+}
+
+.contactbox .input-group {
+	padding: 0 10px;
 }
 
 .homeDienst {
@@ -12,6 +17,11 @@
 	text-align: right;
 }
 
-.homeDienstOmschrijving{
+.homeDienstOmschrijving {
 	height: fit-content !important;
+}
+
+#contactform h1{
+	color: #5c5470 !important;
+	border-bottom: 10px solid #5c5470 !important;
 }

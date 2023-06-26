@@ -2,64 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\contactverzoeken;
+use App\Models\Contactverzoeken;
 use Illuminate\Http\Request;
 
 class ContactverzoekenController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function getContactverzoeken(Request $request)
     {
-        //
+        $contactverzoeken = Contactverzoeken::get();
+        if (!empty($contactverzoeken)) {
+            $contactverzoeken = $contactverzoeken->toArray();
+        } else {
+            $contactverzoeken = [];
+        }
+
+        return response()->json([
+            'contactverzoeken' => $contactverzoeken,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function addContactVerzoek(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(contactverzoeken $contactverzoeken)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(contactverzoeken $contactverzoeken)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, contactverzoeken $contactverzoeken)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(contactverzoeken $contactverzoeken)
-    {
-        //
+        $_POST = $request->all();
+        // insert contactverzoek
+        $insert = Contactverzoeken::insert(["date" => date("Y-m-d"), "naam" => ucfirst($_POST['naam']), "email" => $_POST['email'], "onderwerp" => $_POST['onderwerp'], "bericht" => $_POST['bericht']]);
+        if ($insert) {
+            return response()->json([
+                'bool' => "true",
+                'message' => "Bedankt voor je contact verzoek " . $_POST['naam'],
+            ]);
+        } else {
+            return response()->json([
+                'bool' => "false",
+                'message' => "Er ging iets mis met het versturen van je contact verzoek",
+            ]);
+        }
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\DienstenController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\DienstenController;
+use App\Http\Controllers\ContactverzoekenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,15 +27,19 @@ Route::get('/', function () {
 
 // ============ POST ============
 
-// user
+// Users
 Route::post('/loginuser', [UsersController::class, 'getUser']);
 Route::post('/checkuser', [UsersController::class, 'checkUser']);
 
-// diensten
+// Diensten
 Route::post('/getdiensten', [DienstenController::class, 'getDiensten']);
 Route::post('/adddienst', [DienstenController::class, 'addDienst']);
 Route::post('/editdienst', [DienstenController::class, 'editDienst']);
 Route::post('/deletedienst', [DienstenController::class, 'deleteDienst']);
+
+// Contact verzoeken
+Route::post('/getcontactverzoeken', [ContactverzoekenController::class, 'getContactVerzoeken']);
+Route::post('/addcontactverzoek', [ContactverzoekenController::class, 'addContactVerzoek']);
 
 // ============ DEFAULT ============
 Route::get('{any?}', function ($any = null) {

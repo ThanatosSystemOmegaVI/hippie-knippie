@@ -1,13 +1,11 @@
 <template>
 	<section class="p-4">
 		<div class="row">
-			<!-- title -->
-
 			<!-- ----------------- Alle diensten ----------------- -->
 			<div class="col-12 col-md-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 my-4">
 				<div class="row">
 					<div class="col-12 col-md-12 col-lg-12 col-xl-12 my-4">
-						<h2 class="text-center fs-1 headertext groupheader">Uw kapster aan huis </h2>
+						<h1 class="text-center fs-1 headertext groupheader">Uw thuis kapster in alblasserdam</h1>
 					</div>
 					<!-- ----------------- Dienst ----------------- -->
 					<div v-for="dienst in diensten" class="col-12 col-md-12 col-lg-12 col-xl-12 mb-4">
